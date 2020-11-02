@@ -1,6 +1,6 @@
 import React from "react";
 import '../App/App.css';
-import { makeStyles, createStyles, Theme, withStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -8,7 +8,6 @@ import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { certificates } from '../Data/';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -52,7 +51,6 @@ const THEME = createMuiTheme();
 
 function Certificates() {
 	const classes = useStyles();
-	const isSmall = useMediaQuery(THEME.breakpoints.down('md'));
 
 	return (
 		<ThemeProvider theme={THEME}>
