@@ -42,9 +42,9 @@ export const exp = [
 ]
 
 export const openSource = {
-  githubConvertedToken: process.env.REACT_APP_GITHUB_TOKEN,
-  githubUserName: "Dave3130", 
-  showGithubProfile :"true"
+
+	githubUserName: "Dave3130",
+	showGithubProfile: "true"
 };
 
 
