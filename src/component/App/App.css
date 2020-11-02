@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+/*-----global-----*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+body{
+    width: 100%;
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
+.hero{
+    padding: 0 2%;
+    overflow: hidden;
+}
+
+
+.headingOne{
+    font-size: 2rem;
+    line-height: 3.2rem;
+    font-weight: 600;
+    padding-top: 22%;
+    padding-left: 5%;
+    color: black;
+    
+    
+}
+.headingTwo{
+    font-size: 2.7rem;
+    line-height: 4.2rem;
+    font-weight: 700;
+    margin-top: -0.7rem;
+    padding-left: 5%;
+    color: rgb(100, 21, 255);
+    
+}
+#heroContent{
+    font-size: 1.5rem;
+    padding-left: 5%;
+    padding-top: 0.3rem;
+    padding-bottom: 0.2rem;
+    line-height: 1.7rem;
+    font-weight: 400;
+}
+
+/*-----nav-----*/
+.navbar{
+    position: absolute;
+    line-height: 60px;
+    text-align: left;   
+    display: flex;
+    padding: 0.8% 4.5%;
+   
+}
+.navbar li{
+    list-style-type: none;
+}
+.navbar li a{
+    text-decoration: none;
+    color: mediumvioletred;
+    font-size: 2.2vw;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mobile-nav{
+    display: none;
+}
+
+.contentButton{
+    margin-left: 5%;
+    padding-top: 3%;
+}
+
+ .resumeBtn {
+	 font-family: 'Space Mono', monospace;
+	 letter-spacing: 1px;
+	 background: blueviolet;
+	 color: white;
+	 position: relative;
+	 outline: none;
+	 border: none;
+	 padding: .8rem 2.5rem;
+     border-radius: 18px;
+	 font-size: 20px;
+     font-weight: 700;
+	 z-index: 2;
+	 transition: 0.01s 0.23s ease-out all;
+	 overflow: hidden;
+     filter: drop-shadow(15px 6px 3px gray);
+}
+ .resumeBtn:hover {
+	 cursor: pointer;
+	 color: transparent;
+}
+ .resumeBtn:hover:before {
+	 left: 100%;
+	 width: 25%;
+}
+ .resumeBtn:hover:after {
+	 left: 100%;
+	 width: 70%;
+}
+ .resumeBtn:hover .icon-right.after:after {
+	 left: -80px;
+	 color: white;
+	 transition: 0.2s 0.2s ease all;
+}
+ .resumeBtn:hover .icon-right.after:before {
+	 left: -104px;
+	 top: 14px;
+	 opacity: 0.2;
+	 color: white;
+}
+ .icon-right {
+	 position: absolute;
+	 top: 0;
+	 right: 0.1;
+}
+ .icon-right:after {
+	 font-family: "FontAwesome";
+	 content: '\2192';
+	 font-size: 28px;
+	 display: inline-block;
+	 position: relative;
+	 top: 26px;
+	 transform: translate3D(0, -50%, 0);
+}
+ .icon-right.after:after {
+	 left: -250px;
+	 color: black;
+	 transition: 0.15s 0.25s ease left, 0.5s 0.05s ease color;
+}
+ .icon-right.after:before {
+	 content: 'See it';
+	 position: absolute;
+	 left: -230px;
+	 top: 14px;
+	 opacity: 0.8;
+	 transition: 0.2s ease-in all;
+}
+
+
+.react-svg, .java-svg, .codechef-svg, .php-svg{
+    margin-left: 22%;
+    margin-top: 20%;
+    position: absolute;
+    width: 4.3rem; 
+    fill: white;
+    animation-delay: 5s;
+}
+.javascript-svg, .python-svg, .html-svg, .css-svg, .jquery-svg{
+    margin-left: 22%;
+    margin-top: 20%;
+    position: absolute;
+    fill: white;
+    width: 3.5rem;
+    animation-delay: 5s;
+}
+.react-svg{
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+.python-svg{
+    -webkit-animation: orbit1 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit1 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit1 14s linear infinite; /* Opera 12+ */
+            animation: orbit1 14s linear infinite; /* Chrome, Firefox 16+, IE 10+, Safari 5 */
+}
+
+.java-svg{
+    -webkit-animation: orbit6 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit6 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit6 14s linear infinite; /* Opera 12+ */
+            animation: orbit6 14s linear infinite; /* Chrome, Firefox 16+, 
+                                                     IE 10+, Safari 5 */
+}
+
+.html-svg{
+    -webkit-animation: orbit2 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit2 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit2 14s linear infinite; /* Opera 12+ */
+            animation: orbit2 14s linear infinite; /* Chrome, Firefox 16+, 
+                                                     IE 10+, Safari 5 */
+    
+}
+
+@-webkit-keyframes orbit1 {
+	from { 	-webkit-transform: rotate(0deg) translateX(100px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@-moz-keyframes orbit1 {
+	from { 	-moz-transform: rotate(0deg) translateX(100px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@-o-keyframes orbit1 {
+	from { 	-o-transform: rotate(0deg) translateX(100px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@keyframes orbit1 {
+	from { 	transform: rotate(0deg) translateX(100px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+
+@-webkit-keyframes orbit6 {
+	from { 	-webkit-transform: rotate(0deg) translateX(80px) translateY(80px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateX(80px) translateY(80px) rotate(-360deg); }
+}
+@-moz-keyframes orbit6 {
+	from { 	-moz-transform: rotate(0deg) translateX(80px) translateY(80px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateX(80px) translateY(80px) rotate(-360deg); }
+}
+@-o-keyframes orbit6 {
+	from { 	-o-transform: rotate(0deg) translateX(80px) translateY(80px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateX(80px) translateY(80px) rotate(-360deg); }
+}
+@keyframes orbit6 {
+	from { 	transform: rotate(0deg) translateX(80px) translateY(80px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateX(80px) translateY(80px) rotate(-360deg); }
+}
+
+
+@-webkit-keyframes orbit2 {
+	from { 	-webkit-transform: rotate(0deg) translateY(100px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateY(100px) rotate(-360deg); }
+}
+@-moz-keyframes orbit2 {
+	from { 	-moz-transform: rotate(0deg) translateY(100px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateY(100px) rotate(-360deg); }
+}
+@-o-keyframes orbit2 {
+	from { 	-o-transform: rotate(0deg) translateY(100px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateY(100px) rotate(-360deg); }
+}
+@keyframes orbit2 {
+	from { 	transform: rotate(0deg) translateY(100px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateY(100px) rotate(-360deg); }
+}
+
+.css-svg{
+    -webkit-animation: orbit3 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit3 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit3 14s linear infinite; /* Opera 12+ */
+            animation: orbit3 14s linear infinite; /* Chrome, Firefox 16+, IE 10+, Safari 5 */
+}
+
+@-webkit-keyframes orbit3 {
+	from { 	-webkit-transform: rotate(0deg) translateX(-100px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateX(-100px) rotate(-360deg); }
+}
+@-moz-keyframes orbit3 {
+	from { 	-moz-transform: rotate(0deg) translateX(-100px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateX(-100px) rotate(-360deg); }
+}
+@-o-keyframes orbit3 {
+	from { 	-o-transform: rotate(0deg) translateX(-100px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateX(-100px) rotate(-360deg); }
+}
+@keyframes orbit3 {
+	from { 	transform: rotate(0deg) translateX(-100px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateX(-100px) rotate(-360deg); }
+}
+
+.jquery-svg{
+    -webkit-animation: orbit4 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit4 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit4 14s linear infinite; /* Opera 12+ */
+            animation: orbit4 14s linear infinite; /* Chrome, Firefox 16+, 
+                                                     IE 10+, Safari 5 */
+    
+}
+
+@-webkit-keyframes orbit4 {
+	from { 	-webkit-transform: rotate(0deg) translateY(-100px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateY(-100px) rotate(-360deg); }
+}
+@-moz-keyframes orbit4 {
+	from { 	-moz-transform: rotate(0deg) translateY(-100px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateY(-100px) rotate(-360deg); }
+}
+@-o-keyframes orbit4 {
+	from { 	-o-transform: rotate(0deg) translateY(-100px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateY(-100px) rotate(-360deg); }
+}
+@keyframes orbit4 {
+	from { 	transform: rotate(0deg) translateY(-100px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateY(-100px) rotate(-360deg); }
+}
+
+.php-svg{
+    -webkit-animation: orbit5 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit5 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit5 14s linear infinite; /* Opera 12+ */
+            animation: orbit5 14s linear infinite; /* Chrome, Firefox 16+, 
+                                                     IE 10+, Safari 5 */   
+}
+
+@-webkit-keyframes orbit5 {
+	from { 	-webkit-transform: rotate(0deg) translateY(-80px) translateX(80px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateY(-80px) translateX(80px) rotate(-360deg); }
+}
+@-moz-keyframes orbit5 {
+	from { 	-moz-transform: rotate(0deg) translateY(-80px) translateX(80px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateY(-80px) translateX(80px) rotate(-360deg); }
+}
+@-o-keyframes orbit5 {
+	from { 	-o-transform: rotate(0deg) translateY(-80px) translateX(80px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateY(-80px) translateX(80px) rotate(-360deg); }
+}
+@keyframes orbit5 {
+	from { 	transform: rotate(0deg) translateY(-80px) translateX(80px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateY(-80px) translateX(80px) rotate(-360deg); }
+}
+
+.javascript-svg{
+    -webkit-animation: orbit7 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit7 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit7 14s linear infinite; /* Opera 12+ */
+            animation: orbit7 14s linear infinite; /* Chrome, Firefox 16+, 
+                                                     IE 10+, Safari 5 */   
+}
+
+@-webkit-keyframes orbit7 {
+	from { 	-webkit-transform: rotate(0deg) translateY(-80px) translateX(-80px) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateY(-80px) translateX(-80px) rotate(-360deg); }
+}
+@-moz-keyframes orbit7 {
+	from { 	-moz-transform: rotate(0deg) translateY(-80px) translateX(-80px) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateY(-80px) translateX(-80px) rotate(-360deg); }
+}
+@-o-keyframes orbit7 {
+	from { 	-o-transform: rotate(0deg) translateY(-80px) translateX(-80px) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateY(-80px) translateX(-80px) rotate(-360deg); }
+}
+@keyframes orbit7 {
+	from { 	transform: rotate(0deg) translateY(-80px) translateX(-80px) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateY(-80px) translateX(-80px) rotate(-360deg); }
+}
+
+.codechef-svg{
+    -webkit-animation: orbit8 14s linear infinite; /* Chrome, Safari 5 */
+       -moz-animation: orbit8 14s linear infinite; /* Firefox 5-15 */
+         -o-animation: orbit8 14s linear infinite; /* Opera 12+ */
+            animation: orbit8 14s linear infinite; /* Chrome, Firefox 16+, 
+                                                     IE 10+, Safari 5 */   
+}
+
+@-webkit-keyframes orbit8 {
+	from { 	-webkit-transform: rotate(0deg) translateY(80px) translateX(-80px)  rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateY(80px) translateX(-80px)  rotate(-360deg); }
+}
+@-moz-keyframes orbit8 {
+	from { 	-moz-transform: rotate(0deg) translateY(80px) translateX(-80px)  rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateY(80px) translateX(-80px)  rotate(-360deg); }
+}
+@-o-keyframes orbit8 {
+	from { 	-o-transform: rotate(0deg) translateY(80px) translateX(-80px)  rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateY(80px) translateX(-80px)  rotate(-360deg); }
+}
+@keyframes orbit8 {
+	from { 	transform: rotate(0deg) translateY(80px) translateX(-80px)  rotate(0deg); }
+	to   {  transform: rotate(360deg) translateY(80px) translateX(-80px)  rotate(-360deg); }
+}
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px ){
+    .navbar{
+        display: none;
+    }
+    .mobile-nav{
+    display: block;
+}
+    
+}
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) 
+@media only screen and (min-width: 600px) and (max-width: 767px ){
+    .Nav{
+        display: none;
+    }
+    
+    .react-svg, .java-svg, .codechef-svg, .php-svg{
+    margin-left: 35%;
+        margin-top: 32%;
+    position: absolute;
+    width: 3.5rem; 
+    fill: white;
+    }
+    .javascript-svg, .python-svg, .html-svg, .css-svg, .jquery-svg{
+        margin-left: 35%;
+        margin-top: 32%;
+        position: absolute;
+        fill: white;
+        width: 3rem;
+    }
+
+}
+
+Medium devices (landscape tablets, 768px and up) 
+@media only screen and (min-width: 768px )and (max-width: 992px) {
+    .react-svg, .java-svg, .codechef-svg, .php-svg{
+    margin-left: 25%;
+        margin-top: 27%;
+    position: absolute;
+    width: 4.3rem; 
+    fill: white;
+}
+.javascript-svg, .python-svg, .html-svg, .css-svg, .jquery-svg{
+    margin-left: 25%;
+        margin-top: 27%;
+    position: absolute;
+    fill: white;
+    width: 3.5rem;
+}
+    
+}
+
+
+*/
+
+
+#menuToggle
+{
+  position: relative;
+  top: 50px;
+  left: 40px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: #fff;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #81049B;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #fff;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 270px;
+  margin: -50px 0 0 -42px;
+  padding: 50px;
+  padding-top: 125px;
+  border-radius: 35px;
+  background: #81049B;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+    margin-top: -5px;
+  padding: 10px 0;
+  font-size: 1.7rem;
+  
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+
+
