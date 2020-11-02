@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
-import Scrollspy from 'react-scrollspy';
 import Navbar from './Navbar';
 import SideBar from './SideBar';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Zoom from '@material-ui/core/Zoom';
 import Fab from "@material-ui/core/Fab";
@@ -90,7 +88,7 @@ class App extends React.Component {
 				</div>
 				<ScrollTop>
 					<Fab color="secondary" size="medium" aria-label="scroll back to top">
-						<i class="fas fa-chevron-up fa-2x"></i>
+						<i className="fas fa-chevron-up fa-2x"></i>
 					</Fab>
 				</ScrollTop>
 			</div>
