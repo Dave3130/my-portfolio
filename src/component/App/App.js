@@ -89,8 +89,8 @@ class App extends React.Component {
 					<Footer />
 				</div>
 				<ScrollTop>
-					<Fab color="secondary" size="small" aria-label="scroll back to top">
-						<i class="fas fa-chevron-up"></i>
+					<Fab color="secondary" size="medium" aria-label="scroll back to top">
+						<i class="fas fa-chevron-up fa-2x"></i>
 					</Fab>
 				</ScrollTop>
 			</div>
