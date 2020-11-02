@@ -100,7 +100,7 @@ function Interests() {
 
 							<Box display="flex" flexwrap="nowrap">
 								<Box>
-									<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}><span style={{ color: "blue" }}>Codechef</span> Highest Rating 🏆:&nbsp;&nbsp;&nbsp;</Typography>
+									<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}><span style={{ color: "blue" }}>Codechef</span> Highest Rating <span role="img">🏆</span>:&nbsp;&nbsp;&nbsp;</Typography>
 								</Box>
 								<Box flexGrow={1} alignSelf="flex-end">
 									<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}>1558</Typography>
@@ -108,14 +108,14 @@ function Interests() {
 							</Box>
 							<Box display="flex" flexwrap="nowrap">
 								<Box >
-									<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}><span style={{ color: "blue" }}>Hackerrank</span> Badge 🏅:&nbsp;&nbsp;&nbsp;</Typography>
+									<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}><span style={{ color: "blue" }}>Hackerrank</span> Badge <span role="img">🏅</span>:&nbsp;&nbsp;&nbsp;</Typography>
 								</Box>
 								<Box flexGrow={1} alignSelf="flex-end">
-									<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}>Python ⭐⭐⭐⭐⭐</Typography>
+									<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}>Python <span role="img">⭐⭐⭐⭐⭐</span></Typography>
 								</Box>
 							</Box>
 							<Box display="flex" flexwrap="wrap">
-								<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}><span style={{ color: "blue" }}>ICPC Asia Kanpur</span> Preliminary Online Site Competition 🏆:&nbsp;&nbsp;&nbsp;166th position</Typography>
+								<Typography component="p" style={{ paddingTop: "10px", textAlign: "left", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.4rem", fontWeight: "600" }}><span style={{ color: "blue" }}>ICPC Asia Kanpur</span> Preliminary Online Site Competition <span role="img">🏆</span>:&nbsp;&nbsp;&nbsp;166th position</Typography>
 							</Box>
 
 						</Box>
