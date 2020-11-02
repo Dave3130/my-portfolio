@@ -255,9 +255,6 @@ function Footer() {
 									error={messageError}
 								/>
 
-								<div className="g-recaptcha" data-sitekey="${process.env.RECAPTCHA_SITE_KEY}" ></div>
-								<br />
-
 								<SubmitBtn variant="contained" href="" rel="noreferrer" onClick={submitForm} >Submit</SubmitBtn>
 
 							</form>
