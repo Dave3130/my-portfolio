@@ -148,30 +148,25 @@ function Footer() {
 			formData.forEach((value, key) => { object[key] = value });
 			var json = JSON.stringify(object);
 
-			const res = await fetch(
-				"https://send.pageclip.co/uTtFvnuCkCsEXRsKavs8ZAO7O7DS7sCd/ContactForm",
-				{
-					method: "POST",
-					body: json,
-					headers: {
-						"Accept": "application/json",
-						"Content-Type": "application/json",
-					},
-				}
-			);
-			const data = await res.json();
-			!data.hasOwnProperty("error") ? console.log("Error")
-				: console.log("success")
-
-
+			fetch("https://send.pageclip.co/uTtFvnuCkCsEXRsKavs8ZAO7O7DS7sCd/ContactForm", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: json,
+			})
+				.then(function (response) {
+					console.log(response)
+				})
+				.catch(function (error) {
+					console.error(error)
+				})
 		}
 		else {
 			console.log("error")
 		}
 
-		setName('');
-		setEmail('');
-		setMessage('');
 	};
 
 
