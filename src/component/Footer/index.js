@@ -15,8 +15,8 @@ import { ReactComponent as Git } from './Git.svg';
 import { ReactComponent as LinkedIn } from './LinkedIn.svg';
 import Link from '@material-ui/core/Link';
 import { social } from '../Data/';
-import { Alert, AlertTitle } from '@material-ui/lab';
-
+import * as emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 
 const SubmitBtn = withStyles((theme) => ({
 	root: {
@@ -86,8 +86,6 @@ function Footer() {
 	const [message, setMessage] = useState("");
 	const [messageError, setMessageError] = useState(false);
 
-	const [submitted, setSubmitted] = useState(false);
-	const [pending, setPending] = useState(false);
 	const classes = useStyles();
 	const isBig = useMediaQuery(THEME.breakpoints.up('sm'));
 	const profileImg = {
@@ -132,46 +130,46 @@ function Footer() {
 		return error;
 	};
 
+
 	const submitForm = async (e) => {
 		e.preventDefault();
-		setPending(true);
 		const validName = validateName(name);
 		const validEmail = validateEmail(email);
 		const validMessage = validateMessage(message);
 		if (validName === false && validEmail === false && validMessage === false) {
 
-			const formData = new FormData();
-			formData.append("name", name);
-			formData.append("email", email);
-			formData.append("msg", message);
-			var object = {};
-			formData.forEach((value, key) => { object[key] = value });
-			var json = JSON.stringify(object);
-
-			fetch("https://send.pageclip.co/uTtFvnuCkCsEXRsKavs8ZAO7O7DS7sCd/ContactForm", {
-				method: 'POST',
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-					'Content-Type': 'application/json',
-					'Accept': 'application/json',
-
-				},
-				body: json,
-			})
+			var templateParams = {
+				name: name,
+				email: email,
+				message: message
+			};
+			emailjs.send("${process.env.EMAILJS_SERVICE_ID}", "${process.env.EMAILJS_TEMPLATE_ID}", templateParams, "${process.env.EMAILJS_USER_ID}")
 				.then(function (response) {
-					if (!response.ok) {
-						throw Error(response.statusText);
-					}
-					else {
-						alert('Success');
-					}
-				})
-				.catch(function (error) {
-					console.error(error);
-				})
+					Swal.fire({
+						title: 'Success!!',
+						text: 'Your response has been recorded',
+						icon: 'success',
+						confirmButtonText: 'OK'
+					})
+					setName('');
+					setEmail('');
+					setMessage('');
+				}, function (error) {
+					Swal.fire({
+						title: 'Oops !!',
+						text: 'Some Error occurred while processing your request\nPlease try after some time.',
+						icon: 'error',
+						confirmButtonText: 'Ok'
+					})
+				});
 		}
 		else {
-			console.log("error")
+			Swal.fire({
+				title: 'Error !!',
+				text: 'Fill all the details properly !!',
+				icon: 'error',
+				confirmButtonText: 'Ok'
+			})
 		}
 
 	};
@@ -227,7 +225,7 @@ function Footer() {
 
 						<Paper className={classes.paper} elevation={3}>
 							<Typography component="p" style={{ fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.5rem", fontWeight: "600", color: "#81049B" }}>Feel Free to Contact Me 🙂</Typography>
-							<form noValidate autoComplete="off">
+							<form noValidate autoComplete="off" id="contactForm">
 								<TextField
 									id="name"
 									label="Name"
@@ -257,14 +255,17 @@ function Footer() {
 									error={messageError}
 								/>
 
-								<SubmitBtn variant="contained" href="" rel="noreferrer" onClick={submitForm} pending={pending} >Submit</SubmitBtn>
+								<div className="g-recaptcha" data-sitekey="${process.env.RECAPTCHA_SITE_KEY}" ></div>
+								<br />
+
+								<SubmitBtn variant="contained" href="" rel="noreferrer" onClick={submitForm} >Submit</SubmitBtn>
 
 							</form>
 						</Paper>
 					</Grid>
 					<Grid item xs={12} sm={6} md={7} align={isBig ? "right" : "center"} p={4}>
 
-						<img style={profileImg} src={require('../assest/img/JD.jpg')} alt="logo" />
+						<img style={profileImg} src={require('../assest/img/JD.jpg')} alt="profile-img" />
 
 					</Grid>
 				</Grid>
@@ -281,13 +282,13 @@ function Footer() {
 				<Box align="center" style={{ marginTop: "-8.6rem" }}>
 					<Box display="flex" flexwrap="wrap" justifyContent="center">
 						<Link href={social.insta} target="_blank">
-							<Instagram className={classes.icons} />
+							<Instagram className={classes.icons} alt="instagram" />
 						</Link>
 						<Link href={social.git} target="_blank">
-							<Git className={classes.icons} />
+							<Git className={classes.icons} alt="github" />
 						</Link>
 						<Link href={social.linkedIn} target="_blank">
-							<LinkedIn className={classes.icons} />
+							<LinkedIn className={classes.icons} alt="linkedin" />
 						</Link>
 					</Box>
 					<Box>
@@ -297,7 +298,7 @@ function Footer() {
 					</Box>
 				</Box>
 			</div>
-		</ThemeProvider>
+		</ThemeProvider >
 	);
 
 }
