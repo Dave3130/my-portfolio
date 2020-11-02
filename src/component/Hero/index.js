@@ -1,15 +1,12 @@
 ﻿import React from "react";
 import '../App/App.css';
-import { makeStyles, createStyles, withStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import { social } from '../Data/';
 
@@ -70,9 +67,8 @@ const THEME = createMuiTheme();
 
 function Hero() {
 	const classes = useStyles();
-	const isSmall = useMediaQuery(THEME.breakpoints.down('sm'));
 	const isMedium = useMediaQuery(THEME.breakpoints.between('sm', 'md'));
-	const isBig = useMediaQuery(THEME.breakpoints.up('md'));
+
 	const img = {
 		width: isMedium ? "100%" : "80%",
 		paddingTop: "5.5rem",
@@ -107,7 +103,7 @@ function Hero() {
 					<Grid item xs={12} sm={5} md={6} >
 
 						<Box align="center" >
-							<img src={require('./bg.png')} style={img} />
+							<img src={require('./bg.png')} style={img} alt="hero-bg" />
 
 						</Box>
 					</Grid>
