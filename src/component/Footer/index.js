@@ -151,16 +151,23 @@ function Footer() {
 			fetch("https://send.pageclip.co/uTtFvnuCkCsEXRsKavs8ZAO7O7DS7sCd/ContactForm", {
 				method: 'POST',
 				headers: {
+					'Access-Control-Allow-Origin': '*',
 					'Content-Type': 'application/json',
-					Accept: 'application/json'
+					'Accept': 'application/json',
+
 				},
 				body: json,
 			})
 				.then(function (response) {
-					console.log(response)
+					if (!response.ok) {
+						throw Error(response.statusText);
+					}
+					else {
+						alert('Success');
+					}
 				})
 				.catch(function (error) {
-					console.error(error)
+					console.error(error);
 				})
 		}
 		else {
