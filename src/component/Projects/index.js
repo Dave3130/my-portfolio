@@ -136,7 +136,7 @@ class Projects extends React.Component {
 											</Paper>
 										</Grid>
 										{/*<small>error.toString()</small>*/}
-										{error && <Typography style={{ margin: "0 auto", fontSize: "1.3rem", paddingBottom: "10px" }}>Oops!! Some Error Occured. Please check your internet connection</Typography>}
+										{error && <Typography style={{ margin: "0 auto", fontSize: "1.3rem", paddingBottom: "10px" }}>Oops!! Some Error Occured</Typography>}
 									</Grid>
 								</div>
 							);
