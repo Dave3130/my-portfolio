@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             position: 'fixed',
-            bottom: theme.spacing(2),
-            right: theme.spacing(2),
+            bottom: theme.spacing(10),
+            right: theme.spacing(3),
         },
     }),
 );
@@ -73,6 +73,7 @@ class App extends React.Component {
                 </div>
                 <div id="projects">
                     <Projects />
+                    <BigProjects />
                 </div>
                 <div id="skills">
                     <Skills />
