@@ -143,7 +143,8 @@ function Footer() {
                 email: email,
                 message: message
             };
-            emailjs.send('{process.env.REACT_APP_EMAILJS_SERVICE_ID}', '{process.env.REACT_APP_EMAILJS_TEMPLATE_ID}', templateParams, '{process.env.REACT_APP_EMAILJS_USER_ID}')
+
+            emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, templateParams, process.env.REACT_APP_EMAILJS_USER_ID)
                 .then(function (response) {
                     Swal.fire({
                         title: 'Success!!',
@@ -225,7 +226,8 @@ function Footer() {
                     <Grid item xs={12} sm={6} md={5} align="center">
 
                         <Paper className={classes.paper} elevation={3}>
-                            <Typography component="p" style={{ fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.5rem", fontWeight: "600", color: "#81049B" }}>Feel Free to Contact Me <span role="img">🙂</span></Typography>
+                            <Typography component="p" style={{ fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.5rem", fontWeight: "600", color: "#81049B" }}>Feel Free to Contact Me <span role="img" aria-label="smiley">🙂</span></Typography>
+
                             <form noValidate autoComplete="off" id="contactForm">
 
                                 < TextField
