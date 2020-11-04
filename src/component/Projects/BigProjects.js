@@ -1,145 +1,244 @@
 ﻿import React from "react";
+import '../App/App.css';
 import { makeStyles, createStyles, withStyles, Theme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
 import Chip from '@material-ui/core/Chip';
-
-
-const ProjectButton = withStyles((theme) => ({
-    root: {
-        color: "#FFFFFF",
-        fontSize: "1.1rem",
-        borderRadius: "15px",
-        backgroundColor: "#81049B",
-        '&:hover': {
-            color: "#81049B",
-            backgroundColor: "#FFFFFF",
-            border: "1.8px solid #81049B"
-        },
-    },
-}))(Button);
+import Link from '@material-ui/core/Link';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
-            padding: '0.8% 6%'
+            padding: '0.8% 6%',
         },
         paper: {
-            minHeight: '150px',
-            padding: theme.spacing(2.1),
+            height: '300px',
+            padding: theme.spacing(0),
+            marginTop: "2rem",
+            borderRadius: "35px",
             color: theme.palette.text.secondary,
+            width: "95%",
             overflow: 'hidden',
-            borderRadius: '10px',
-            filter: 'drop-shadow(6px -6px 5px #E0E0E0)',
-            '&:hover': {
-                filter: 'drop-shadow(-8px 8px 9px #E0E0E0)'
-            }
-
+            [theme.breakpoints.up('md')]: {
+                width: "75%",
+            },
         },
-        title: {
-            fontFamily: '"Baloo Tamma 2", "cursive"',
-            fontSize: "1.6rem",
-            color: '#81049B',
-            fontWeight: "600",
-            lineHeight: "2rem",
-            textDecoraton: "none"
-        },
-        iconStyle: {
-            width: '2.2rem',
-            filter: 'drop-shadow( 4px -4px 4px #DA70D6)',
-        },
-        description: {
-            fontFamily: '"Baloo Tamma 2", "cursive"',
-            fontSize: "1.2rem",
-            color: '#8F8B83',
-            fontWeight: "400",
-            lineHeight: '1.8rem'
+        closeButton: {
+            textAlign: "right",
+            right: theme.spacing(1),
+            top: theme.spacing(1),
+            color: theme.palette.grey[500],
         },
         chip: {
-            color: "#81049B",
+            backgroundColor: "#f50057",
+            color: "#fff",
+            padding: "0.82rem",
+            marginTop: "-0.5rem",
+            fontFamily: '"Baloo Tamma 2", "cursive"',
             fontWeight: "500",
-            border: "1.5px solid #81049B",
+            fontSize: "1.1rem",
+            border: "1px solid #f50057",
 
         }
     }),
 );
 
+const DialogTitle = withStyles(useStyles)((props) => {
+    const { children, classes, onClose, title, ...other } = props;
+    return (
+        <MuiDialogTitle disableTypography className={classes.root} {...other}>
+            <Box display="flex">
+                <Box flexGrow={1}>
+                    <Typography component="p" style={{ paddingTop: "5px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.7rem", lineHeight: "1.9rem", fontWeight: "600", color: "#f50057" }}>{title}</Typography>
+                </Box>
+                <Box>
+                    {onClose ? (
+                        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+                            <i className="far fa-window-close"></i>
+                        </IconButton>
+                    ) : null}
+                </Box>
+            </Box>
+        </MuiDialogTitle>
+    );
+});
+
+const DialogContent = withStyles((theme) => ({
+    root: {
+        padding: theme.spacing(2),
+    },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+    root: {
+        margin: 0,
+        padding: theme.spacing(2),
+    },
+}))(MuiDialogActions);
+
 const THEME = createMuiTheme();
 
-function BigProjects(props) {
+function BigProjects() {
     const classes = useStyles();
+    const isSmall = useMediaQuery(THEME.breakpoints.down('md'));
+    const [open1, setOpen1] = React.useState(false);
+    const [open2, setOpen2] = React.useState(false);
+
+    const handleClickOpen1 = () => {
+        setOpen1(true);
+    };
+    const handleClose1 = () => {
+        setOpen1(false);
+    };
+
+    const handleClickOpen2 = () => {
+        setOpen2(true);
+    };
+    const handleClose2 = () => {
+        setOpen2(false);
+    };
+
     return (
         <ThemeProvider theme={THEME}>
-
             <div className={classes.root} >
-                <Typography component="p" style={{ paddingTop: "30px", paddingBottom: "15px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "3rem", fontWeight: "600", color: "#81049B" }}>Big Projects<span role="img" aria-label="rocket">🚀</span></Typography>
-                <Grid container spacing={5}>
-                    {props.user.pinnedItems.edges.map(({ node }) => (
+                <Typography component="p" style={{ paddingTop: "30px", paddingBottom: "16px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "3rem", fontWeight: "600", color: "#81049B" }}>Big Projects🔥</Typography>
+                <Grid container spacing={isSmall ? 4 : 10} >
 
-                        <Grid item xs={12} sm={12} md={6} key={node.id} >
-                            <Paper className={classes.paper} elevation={3}>
-                                <Box
-                                    display="flex"
-                                    flexWrap="nowrap"
-                                    bgcolor="background.paper"
-                                >
-                                    <Box px={1} pt={1} pb={0.3}>
-                                        <img className={classes.iconStyle} src={require('../assest/icons/projIcon.png')} alt="icon" />
-                                    </Box>
-                                    <Box px={1} pt={1} pb={0.3} flexWrap="wrap">
-                                        <Link component='a' underline='hover' variant='inherit' href={node.url} target="_blank" rel="noreferrer" className={classes.title}>{node.name}</Link>
-                                    </Box>
+
+                    <Grid item xs={12} sm={6} md={6} align="center" >
+                        <Paper className={classes.paper} elevation={3} onClick={handleClickOpen1}>
+                            <img src={require('../assest/img/face-liveness.jpg')} style={{ width: "100%", height: "100%" }} />
+                        </Paper>
+                        <Typography component="p" style={{ paddingTop: "15px", paddingBottom: "15px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.7rem", lineHeight: "1.9rem", fontWeight: "600", color: "#81049B" }}>Face Liveness Detection System</Typography>
+
+                        <Dialog onClose={handleClose1} aria-labelledby="customized-dialog-title" open={open1}>
+                            <Box display="flex" p={1.8}>
+                                <Box flexGrow={1}>
+                                    <Typography component="p" style={{ paddingTop: "5px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.7rem", lineHeight: "1.9rem", fontWeight: "600", color: "#f50057" }}>Face Liveness Detection System</Typography>
                                 </Box>
-                                <Box display="flex" flexWrap="nowrap" px={1}>
-                                    <Typography className={classes.description} component="p">{node.description}</Typography>
+                                <Box>
+                                    {open1 ? (
+                                        <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose1}>
+                                            <i className="far fa-window-close"></i>
+                                        </IconButton>
+                                    ) : null}
                                 </Box>
+                            </Box>
+                            <DialogContent dividers>
+                                <Typography gutterBottom style={{ fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.2rem", lineHeight: "1.5rem", fontWeight: "600" }}>
+                                    A system for detecting fake faces 🔍 and performing anti-facial spoofing 🤖 in facial recognition systems. Development is underway with a  3 members team.
+                                    </Typography>
+
+                                <Typography style={{ paddingTop: "11px", paddingBottom: "8px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.35rem", lineHeight: "1.5rem", fontWeight: "600", color: "#f50057" }}>
+                                    Technologies Used:
+                                </Typography>
                                 <Box display="flex" flexWrap="wrap" py={0.3} px={1}>
-                                    {node.repositoryTopics.nodes.map(({ topic }, index) => (
-                                        <Box display="flex" py={1} pr={1}>
-                                            <Chip variant="outlined" className={classes.chip} size="small" label={topic.name} key={index} m={1} />
-                                        </Box>
-                                    ))}
+
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="HTML" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="openCV" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="machine-learning" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="cnn-keras" m={1} />
+                                    </Box>
+
                                 </Box>
 
-                                <Box px={1} display="flex" flexWrap="nowrap">
-                                    <Box pr={2}>
-                                        <Typography component="p"><i className="fas fa-code-branch"></i>&nbsp;{node.forkCount}</Typography>
-                                    </Box>
-                                    <Box pr={2}>
-                                        <Typography component="p"><i className="fas fa-star"></i>&nbsp;{node.stargazers.totalCount}</Typography>
-                                    </Box>
-                                    <Box flexGrow={1}>
-                                        <Typography component="p"><i className="fas fa-eye"></i>&nbsp;{node.watchers.totalCount}</Typography>
-                                    </Box>
-                                    <Box >
-                                        <div>
-                                            <Typography component="p">{node.diskUsage}&nbsp;KB</Typography>
-                                        </div>
-                                    </Box>
-                                </Box>
-                                {node.homepageUrl != null &&
-                                    <Box display="flex" justifyContent="flex-end" px={1} pt={1}>
-                                        <Link component='a' underline='hover' variant='inherit' href={node.homepageUrl} target="_blank" rel="noreferrer" style={{ textDecoraton: "none", fontWeight: "600", color: "#81049B" }}><i className="fas fa-angle-double-right"></i>&nbsp;Preview</Link>
-                                    </Box>
-                                }
-                            </Paper>
-                        </Grid>
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose1} style={{ backgroundColor: "#f50057", color: "#fff", fontWeight: "500" }}>
+                                    <i className="far fa-window-close"></i>&nbsp;Close
+                                </Button>
+                            </DialogActions>
+                        </Dialog>
 
-                    ))}
+                    </Grid>
+
+                    <Grid item xs={12} sm={6} md={6} align="center" >
+                        <Paper className={classes.paper} elevation={3} onClick={handleClickOpen2}>
+                            <img src={require('../assest/img/codeyantra-website.png')} style={{ width: "100%", height: "100%" }} />
+                        </Paper>
+                        <Typography component="p" style={{ paddingTop: "15px", paddingBottom: "15px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.7rem", lineHeight: "1.9rem", fontWeight: "600", color: "#81049B" }}>Codeyantra Website</Typography>
+
+                        <Dialog onClose={handleClose2} aria-labelledby="customized-dialog-title" open={open2}>
+                            <Box display="flex" p={1.8}>
+                                <Box flexGrow={1}>
+                                    <Typography component="p" style={{ paddingTop: "5px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.7rem", lineHeight: "1.9rem", fontWeight: "600", color: "#f50057" }}>Codeyantra Website</Typography>
+                                </Box>
+                                <Box>
+                                    {open2 ? (
+                                        <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose2}>
+                                            <i className="far fa-window-close"></i>
+                                        </IconButton>
+                                    ) : null}
+                                </Box>
+                            </Box>
+                            <DialogContent dividers>
+                                <Typography gutterBottom style={{ fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.2rem", lineHeight: "1.5rem", fontWeight: "600" }}>
+                                    This is my first professional website project, designed for the coding committee of my college. It has a responsive front-end with back-end connectivity to update content and a streamlined member selection process. Some of the features includes info of the coding team members, upcoming contests/events, summary of past activities, ranklist & registration form. Developed by a five-member team.
+                                    </Typography>
+
+                                <Typography style={{ paddingTop: "11px", paddingBottom: "8px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.35rem", lineHeight: "1.5rem", fontWeight: "600", color: "#f50057" }}>
+                                    Technologies Used:
+                                </Typography>
+                                <Box display="flex" flexWrap="wrap" py={0.3} px={1}>
+
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="python" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="openCV" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="machine-learning" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="cnn-keras" m={1} />
+                                    </Box>
+
+                                </Box>
+
+                                <Typography style={{ paddingTop: "11px", paddingBottom: "0px", fontFamily: '"Baloo Tamma 2", "cursive"', fontSize: "1.35rem", lineHeight: "1.5rem", fontWeight: "600", color: "#f50057" }}>
+                                    Links:
+                                        </Typography>
+
+                                <Link component='a' underline='hover' variant='inherit' href="#www.codeyantra.in/" target="_blank" rel="noreferrer" style={{ textDecoraton: "none", fontWeight: "600", color: "#000" }}>www.codeyantra.in/</Link>
+
+
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose2} style={{ backgroundColor: "#f50057", color: "#fff", fontWeight: "500" }}>
+                                    <i className="far fa-window-close"></i>&nbsp;Close
+                                </Button>
+                            </DialogActions>
+                        </Dialog>
+                    </Grid>
+
+
 
                 </Grid>
-                <Box align="center" pt={4} m={1}>
-                    <ProjectButton variant="contained" href={props.user.url} target="_blank" rel="noreferrer">More Projects</ProjectButton>
-                </Box>
+
+
+
             </div>
-        </ThemeProvider>
+        </ThemeProvider >
     );
 }
 
