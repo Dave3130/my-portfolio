@@ -201,16 +201,22 @@ function BigProjects() {
                                 <Box display="flex" flexWrap="wrap" py={0.3} px={1}>
 
                                     <Box display="flex" py={1} pr={1}>
-                                        <Chip className={classes.chip} size="small" label="python" m={1} />
+                                        <Chip className={classes.chip} size="small" label="HTML" m={1} />
                                     </Box>
                                     <Box display="flex" py={1} pr={1}>
-                                        <Chip className={classes.chip} size="small" label="openCV" m={1} />
+                                        <Chip className={classes.chip} size="small" label="CSS" m={1} />
                                     </Box>
                                     <Box display="flex" py={1} pr={1}>
-                                        <Chip className={classes.chip} size="small" label="machine-learning" m={1} />
+                                        <Chip className={classes.chip} size="small" label="Javascript" m={1} />
                                     </Box>
                                     <Box display="flex" py={1} pr={1}>
-                                        <Chip className={classes.chip} size="small" label="cnn-keras" m={1} />
+                                        <Chip className={classes.chip} size="small" label="Jquery" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="Php" m={1} />
+                                    </Box>
+                                    <Box display="flex" py={1} pr={1}>
+                                        <Chip className={classes.chip} size="small" label="MySQL" m={1} />
                                     </Box>
 
                                 </Box>
